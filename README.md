@@ -1,1 +1,1 @@
-# ctf-htb-cyber-apocalipse-2024
+# ctf-htb-cyber-apocalypse-2024
