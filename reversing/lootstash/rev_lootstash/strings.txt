@@ -1,0 +1,345 @@
+/lib64/ld-linux-x86-64.so.2
+V1YahD
+setvbuf
+sleep
+puts
+putchar
+time
+stdout
+__libc_start_main
+srand
+__cxa_finalize
+printf
+libc.so.6
+GLIBC_2.34
+GLIBC_2.2.5
+_ITM_deregisterTMCloneTable
+__gmon_start__
+_ITM_registerTMCloneTable
+PTE1
+u+UH
+Ebony, Core of Perdition
+Phantomdream, Trinket of the Corrupted
+Earthsong, Dawn of Visions
+Torment, Beacon of Twilight's End
+Moonshard, Baton of the Wind
+Mirage, Bead of Secrets
+Inertia, Sphere of Nightmares
+Spellkeeper, Glory of Pride
+Mirage, Stone of the Wind
+Ghost, Baton of Suffering
+Scar, Idol of Horrors
+Phantomsong, Focus of Fallen Souls
+Netherlight, Touch of Woe
+Scarlet, Visage of Summoning
+Massacre, Seal of the Shadows
+Dementia, Fan of Eternal Justice
+Scarlet, Insignia of Hatred
+Silence, Destruction of Diligence
+Dreamsong, Globe of Perdition
+Fury, Allegiance of Grieving Widows
+Pursuit, Allegiance of the Forest
+Moonlight, Cry of Shifting Sands
+Doombinder, Edge of Twilight's End
+Draughtbane, Bond of Hate
+Blazefury, Sculptor of Grace
+Clemence, Breaker of Cunning
+Celestia, Slayer of Illumination
+Nexus, Jewel of Pride's Fall
+Dusksong, Whisper of the Covenant
+Splinter, Aspect of the Forsaken
+Tranquillity, Eye of Terror
+Dreamwhisper, Betrayer of the Breaking Storm
+Delusion, Idol of the Moon
+Soulsliver, Fan of Fools
+Fluke, Sculptor of Widows
+Torchlight, Protector of Broken Dreams
+Fluke, Fan of Fools
+Scarlet, Beads of the Corrupted
+Lament, Beads of Trials
+Nymph, Cudgel of Secrets
+Sunlight, Ornament of the Moonwalker
+Purgatory, Insignia of the Light
+Crescent, Call of Trials
+Midnight, Destruction of Necromancy
+Dragonwrath, Pledge of the Wolf
+Frenzy, Fan of Riddles
+Snowflake, Crux of Hate
+Moonlight, Glory of the Lasting Night
+Nexus, Trinket of the Basilisk
+Fury, Bag of Ending Misery
+Contortion, Sculptor of Subtlety
+Midnight, Crystal of the Wolf
+Consecration, Destruction of the Wolf
+Lightbane, Crusader of Trembling Hands
+Celeste, Visage of Ending Misery
+Ghost, Promise of Unholy Blight
+Hysteria, Gem of the Lion
+Clarity, Beads of Justice
+Pursuit, Foe of the Prince
+Soulshard, Incarnation of the Immortal
+Doomshadow, Foe of Storms
+Lull, Last Stand of Blessings
+Nethersong, Crusader of Hope
+Oathkeeper, Executioner of Pride's Fall
+Phantomlight, Last Hope of the Gladiator
+Limbo, Glory of Faded Memories
+Sanguine, Grail of Silence
+Penance, Skull of Dark Souls
+Peacesong, Aspect of Honor
+Supinity, Ferocity of Bloodlust
+Mirage, Globe of Grieving Widows
+Nimble, Tribute of Corruption
+Deluge, Insignia of the Sky
+Daydream, Wit of Ashes
+Mystery, Instrument of the Lone Victor
+Brilliance, Idol of the Forgotten
+Dawne, Reach of Wasted Time
+Blightspore, Harp of Shadow Strikes
+Reflection, Heirloom of Secrecy
+Nymph, Visage of the Crown
+Phantomsong, Incarnation of the Wind
+Harmony, Allegiance of Souls
+Barrage, Globe of Truth
+Doombinder, Dawn of Hate
+Flameguard, Bond of Ending Misery
+Featherfall, Hope of the Daywalker
+Riddle, Lantern of the Daywalker
+Souleater, Pledge of Immortality
+Benediction, Idol of Due Diligence
+Ebony, Ravager of the West
+Scarlet, Beads of the Harvest
+Dawnlight, Fetish of Chaos
+Crescent, Globule of Decay
+Spark, Token of the Daywalker
+Stardust, Legacy of the Flame
+Phantom, Bead of the Incoming Storm
+Quicksilver, Seal of Nightmares
+HTB{n33dl3_1n_a_l00t_stack}
+Glimmer, Prophecy of Magic
+Chaos, Sphere of the Sky
+Torchlight, Tribute of the Phoenix
+Dementia, Ravager of the Dead
+Sapience, Ferocity of Subtlety
+Nemesis, Paragon of the Forest
+Dreamshadow, Destroyer of Riddles
+Spark, Edge of the Breaking Storm
+Limbo, Guardian of Titans
+Twitch, Vessel of the Forgotten
+Doomward, Glaive of Shadows
+Moonshadow, Bringer of Vengeance
+Fury, Wand of the Summoner
+Harmony, Jewel of Hate
+Twitch, Torch of the Setting Sun
+Lament, Fetish of the Champion
+Deathsong, Guardian of Redemption
+Hysteria, Fan of the Lionheart
+Aqua, Destroyer of the Ancients
+Apostle, Heart of Trials
+Starlight, Lantern of the Prince
+Sunlight, Heart of Mountains
+Lifebender, Glory of Dark Souls
+Phantomdream, Promise of the Lion
+Serenity, Bauble of the Wicked
+Flameward, Oath of Due Diligence
+Spellkeeper, Idol of Power
+Windweaver, Heart of the Wretched
+Deathsong, Ender of Vengeance
+Glimmer, Reach of Pride's Fall
+Doomguard, Guardian of Light's Hope
+Remorse, Call of Hell's Games
+Soulkeeper, Champion of Blood
+Whispersong, Ravager of the Breaking Storm
+Flux, Trinket of the East
+Shadowfall, Urn of Ending Misery
+Spark, Soul of Visions
+Limbo, Trinket of the Champion
+Crescent, Touch of the Lionheart
+Soulsliver, Glaive of the Incoming Storm
+Twinkle, Paragon of Faded Memories
+Starlight, Rod of Holy Might
+Emberling, Boon of Due Diligence
+Nimble, Token of the Moonwalker
+Riddle, Pact of Unholy Blight
+Soulflare, Token of the Breaking Storm
+Nightkiss, Charm of Timeless Battles
+Earthfire, Reach of the Sky
+Massacre, Ravager of the Lone Wolf
+Dreamkiss, Might of Traitors
+Brilliancy, Oath of Summoning
+Ataraxia, Cage of Zeal
+Ebony, Promise of the Sunwalker
+Crescent, Crystal of Lost Voices
+Spellsong, Wit of Unholy Blight
+Daydream, Promise of Vengeance
+Draughtbane, Fan of Perdition
+Souleater, Gem of Black Magic
+Brilliancy, Vengeance of the Prince
+Nexus, Instrument of the Beast
+Midnight, Sculptor of the End
+Serenity, Reach of the Sunwalker
+Snowflake, Torch of Magic
+Hysteria, Protector of Wasted Time
+Moonbeam, Call of Infinite Trials
+Blazefury, Prophecy of Stealth
+Nightfall, Boon of Conquered Worlds
+Doomguard, Wit of the Light
+Sleepwalker, Juju of the Prince
+Lull, Hope of the World
+Necrolight, Token of Darkness
+Necrolight, Ornament of Closing Eyes
+Reaper, Defender of the Protector
+Crucifix, Hope of Darkness
+Doomguard, Incarnation of the Shadows
+Featherfall, Orb of Heroes
+Earthsong, Goblet of Heroes
+Dementia, Stone of Fury
+Spire, Memory of the Immortal
+Phantom, Globe of the Crown
+Silence, Stone of Twisted Visions
+Phobia, Rod of Degradation
+Sunshard, Gem of Justice
+Blackout, Allegiance of Dismay
+Celestia, Charm of Suffering's End
+Prophecy, Knapsack of Blessings
+Ivory, Skull of the Earth
+Scorchvine, Chalice of Faded Memories
+Oathkeeper, Beads of Blessings
+Scar, Vessel of Diligence
+Aqua, Executioner of the Banished
+Nemesis, Crusader of Truth
+Quicksilver, Fan of Eternal Bloodlust
+Spark, Executioner of Wasted Time
+Supinity, Reach of Honor
+Flameward, Bag of Fools
+Phantomlight, Whisper of Eternity
+Nemesis, Aspect of Hope
+Moonshadow, Gem of Fury
+Oblivion, Bauble of Mountains
+Hubris, Dawn of the Sky
+Verdict, Memory of Light's Hope
+Prophecy, Slayer of the Harvest
+Thorn, Oath of Souls
+Crucifix, Last Stand of Chaos
+Thorn, Bag of Lost Hope
+Torchlight, Rod of Thunder
+Glimmer, Sculptor of the South
+Soulsiphon, Satchel of Suffering's End
+Emberling, Executioner of the Empty Void
+Dreamkiss, Crux of Ending Hope
+Delusion, Last Stand of the Undying
+Abracadaver, Voice of Degradation
+Barrage, Orb of the South
+Delusion, Whisper of Justice
+Mirage, Glaive of the Leviathan
+Nemesis, Fan of Grieving Widows
+Emberling, Hope of Riddles
+Ferallity, Voice of the Talon
+Earthsong, Ender of Ashes
+Insight, Reach of the Plague
+Nightkiss, Terror of the South
+Solarsong, Jewel of Trembling Hands
+Lorekeeper, Bauble of Necromancy
+Blackout, Instrument of the Crown
+Phantom, Favor of the Covenant
+Dreamwhisper, Heart of Oblivion
+Flux, Cane of Oblivion
+Echo, Vengeance of the West
+Phantomsong, Pledge of the Wretched
+Ataraxia, Glory of the Depth
+Moonshard, Bead of Misery
+Stardust, Harp of Timeless Battles
+Fluke, Conqueror of Mountains
+Scorchvine, Voice of the Falling Sky
+Eclipse, Wit of the King
+Void, Globe of Frost
+Crescent, Voice of Magic
+Persuasion, Conqueror of Cruelty
+Flux, Ferocity of Ending Misery
+Dawne, Defender of Redemption
+Frostward, Annihilation of Mourning
+Starfall, Orb of Frozen Hells
+Windweaver, Trinket of Honor
+Crucifer, Bond of Eternal Glory
+Valhalla, Vessel of Blood
+Malice, Bond of Dragonsouls
+Moonshadow, Trinket of Traitors
+Snowfall, Aspect of the Occult
+Shadowfeather, Legacy of the Dead
+Soulshadow, Grail of the World
+Nightmare, Crystal of Dragonsouls
+Contortion, Vengeance of the Wicked
+Barrage, Boon of the Covenant
+Sunlight, Paragon of Secrets
+Spellbinder, Champion of Silence
+Nightkiss, Dawn of Anguish
+Diving into the stash - let's see what we can find.
+You got: '%s'. Now run, before anyone tries to steal it!
+;*3$"
+GCC: (Debian 12.2.0-14) 12.2.0
+Scrt1.o
+__abi_tag
+crtstuff.c
+deregister_tm_clones
+__do_global_dtors_aux
+completed.0
+__do_global_dtors_aux_fini_array_entry
+frame_dummy
+__frame_dummy_init_array_entry
+main.c
+__FRAME_END__
+_DYNAMIC
+__GNU_EH_FRAME_HDR
+_GLOBAL_OFFSET_TABLE_
+putchar@GLIBC_2.2.5
+__libc_start_main@GLIBC_2.34
+_ITM_deregisterTMCloneTable
+stdout@GLIBC_2.2.5
+puts@GLIBC_2.2.5
+gear
+_edata
+_fini
+printf@GLIBC_2.2.5
+srand@GLIBC_2.2.5
+__data_start
+__gmon_start__
+__dso_handle
+_IO_stdin_used
+time@GLIBC_2.2.5
+_end
+__bss_start
+main
+setvbuf@GLIBC_2.2.5
+__TMC_END__
+_ITM_registerTMCloneTable
+sleep@GLIBC_2.2.5
+__cxa_finalize@GLIBC_2.2.5
+_init
+.symtab
+.strtab
+.shstrtab
+.interp
+.note.gnu.property
+.note.gnu.build-id
+.note.ABI-tag
+.gnu.hash
+.dynsym
+.dynstr
+.gnu.version
+.gnu.version_r
+.rela.dyn
+.rela.plt
+.init
+.plt.got
+.text
+.fini
+.rodata
+.eh_frame_hdr
+.eh_frame
+.init_array
+.fini_array
+.dynamic
+.got.plt
+.data
+.bss
+.comment
