@@ -1,0 +1,2 @@
+Make sure you wrap the decrypted text with the HTB flag format :-]
+DID_YOU_KNOW_ABOUT_THE_TRITHEMIUS_CIPHER?!_IT_IS_SIMILAR_TO_CAESAR_CIPHER
