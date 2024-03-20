@@ -1,12 +1,8 @@
 # HackTheBox Cyber Apocalypse 2024: Hacker Royale
 
-- **START DATE:** 09 Mar 2024, 14:00
-- **END DATE:** 13 Mar, 13:59
-
 ![Alt text](images/header.png)
 
 ![Alt text](images/stats.png)
-
 
 ## Event Overview
 
@@ -48,6 +44,8 @@
     - [Pwn](#pwn)
     - [Reversing](#reversing)
     - [Web](#web)
+  - [Team](#team)
+  - [Results](#results)
 
 
 ## Writeups
@@ -78,3 +76,19 @@
 
 ### Web
 - [Flag Command](web/flag_command/)
+
+
+
+## Team
+
+- @stiggronnestad
+- @hagronnestad
+
+
+## Results
+
+We managed to solve 30 out of 67 challenges and ended up at rank 348 out of 5693 teams (12965 players) in the end.
+
+![Alt text](images/rank.png)
+
+![Alt text](images/results.png)
