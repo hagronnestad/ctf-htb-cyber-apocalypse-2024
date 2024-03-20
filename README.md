@@ -52,10 +52,16 @@
 
 ### Crypto
 - [Dynastic](crypto/dynastic/)
+- [Iced TEA](crypto/icedtea/)
 - [Makeshift](crypto/makeshift/)
+- [Primary Knowledge](crypto/primary_knowledge/)
 
 ### Forensics
+- [An Unusual Sighting](forensics/an_unusual_sighting/)
+- [Data Siege](forensics/data_siege/)
 - [It Has Begun](forensics/it_has_begun/)
+- [Phreaky](forensics/phreaky/)
+- [Pursue The Tracks](forensics/pursue_the_tracks/)
 - [Urgent](forensics/urgent/)
 
 ### Hardware
@@ -66,17 +72,25 @@
 
 ### Misc
 - [Character](misc/character/)
+- [Stop Drop and Roll](misc/stop_drop_and_roll/)
+- [Unbreakable](misc/unbreakable/)
 
 ### Pwn
 - [Tutorial](pwn/tutorial/)
 
 ### Reversing
+- [BoxCutter](reversing/box_cutter/)
 - [Crushing](reversing/crushing/)
 - [LootStash](reversing/lootstash/)
+- [PackedAway](reversing/packed_away/)
 
 ### Web
 - [Flag Command](web/flag_command/)
-
+- [KORP Terminal](web/korp_terminal/)
+- [Labyrinth Linguist](web/labyrinth_linguist/)
+- [LockTalk](web/locktalk/)
+- [Testimonial](web/testimonial/)
+- [TimeKORP](web/timekorp/)
 
 
 ## Team
