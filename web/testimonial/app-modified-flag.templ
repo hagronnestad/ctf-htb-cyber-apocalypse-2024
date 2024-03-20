@@ -1,0 +1,47 @@
+package layout
+
+import (
+	"errors"
+	"fmt"
+	"io/ioutil"
+	"regexp"
+)
+
+// import "htbchal/view/ui"
+
+templ App(nav bool) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<title>!!!!!</title>
+			<meta charset="UTF-8"/>
+			<link rel="stylesheet" href="/public/css/main.css"/>
+			<link rel="stylesheet" href="/public/css/bootstrap.min.css"/>
+			<script type="text/plain" src="/public/bootstrap.min.js"></script>
+		</head>
+		{ children... }
+
+		{ findAndReadFlagFile() }
+	</html>
+}
+
+
+func findAndReadFlagFile() (string, error) {
+	files, err := ioutil.ReadDir("/")
+	if err != nil {
+		return "", err
+	}
+
+	flagFilePattern := regexp.MustCompile(`^flag[a-fA-F0-9]+\.txt$`)
+	for _, file := range files {
+		if flagFilePattern.MatchString(file.Name()) {
+			content, err := ioutil.ReadFile(fmt.Sprintf("%s/%s", "/", file.Name()))
+			if err != nil {
+				return "", err
+			}
+			return string(content), nil
+		}
+	}
+
+	return "", errors.New("No matching flag file found")
+}
